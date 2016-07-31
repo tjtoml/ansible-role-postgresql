@@ -4,7 +4,7 @@
     url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
     state: present
 
-- include: {{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml
+- include: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
 - name: Ensure packages are installed
   apt: name={{item}}
