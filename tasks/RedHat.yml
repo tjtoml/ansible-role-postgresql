@@ -1,0 +1,29 @@
+---
+- include: {{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml
+
+- name: Install postgres packages and other deps
+  yum: name={{item}} state=present
+  with_items:
+    - postgresql94-server
+    - postgresql94-contrib
+    - python-psycopg2
+    - postgresql-libs
+    - libselinux-python
+
+- name: Initialize postgres db (Ignore warning, this is not a traditional use of service command)
+  command: service postgresql-9.4 initdb
+  args:
+    creates: /var/lib/pgsql/9.4/data/postgresql.conf
+  when: ansible_distribution_major_version == "6"
+
+- name: Initialize postgres db
+  command: /usr/pgsql-9.4/bin/postgresql94-setup initdb
+  args:
+    creates: /var/lib/pgsql/9.4/data/postgresql.conf
+  when: ansible_distribution_major_version == "7"
+
+- name: Enable and start postgres service
+  service:
+    name: postgresql-9.4
+    enabled: yes
+    state: started
