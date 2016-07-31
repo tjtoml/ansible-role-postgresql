@@ -3,7 +3,7 @@ tjtoml.postgresql
 
 This role installs `posgresql-9.4` from the repositories provided by [The PostgreSQL Gloabal Develepment Group](https://www.postgresql.org/)
 instead of the the official distribution repositories. That is *all* it does - this role is primarily to ensure that
-`postgresql-[version]` is installed so that the Ansible `postgres` module can be used.
+`postgresql-9.4` is installed so that the Ansible `postgres` module can be used.
 
 Requirements
 ------------
@@ -26,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: database_servers
       roles:
-         - { role: tjtoml.postgresql, postgres_version: 9.4 }
+         - { role: tjtoml.postgresql }
 
 License
 -------
@@ -40,4 +40,5 @@ Written by [tjtoml](https://github.com/tjtoml), primarily for use in his own rol
 
 Contributing
 ------------
-Please submit pull requests!
+Please submit pull requests! The purpose of this playbook is emphatically not to be a complete implementation of all the
+`postgresql` options, but I would like to get it set up so that you can specify the version you want to install.
