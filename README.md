@@ -41,4 +41,4 @@ Written by [tjtoml](https://github.com/tjtoml), primarily for use in his own rol
 Contributing
 ------------
 Please submit pull requests! The purpose of this playbook is emphatically not to be a complete implementation of all the
-`postgresql` options, but I would like to get it set up so that you can specify the version you want to install.
+`postgresql` options, but I'm always interested in adding feautures. 
