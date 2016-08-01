@@ -12,7 +12,7 @@ None.
 
 Role Variables
 --------------
-`postgres_version: 9.4`
+`postgres_version: 9.4 #default`
 
 Dependencies
 ------------
