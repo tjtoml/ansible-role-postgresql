@@ -24,6 +24,9 @@ install:
 
 script:
   # Basic role syntax check
+  - pwd
+  - ls -l
+  - cat ansible.cfg
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
   
   - ansible-playbook -i tests/inventory tests/$SITE --connection=local
