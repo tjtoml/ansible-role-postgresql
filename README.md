@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tjtoml/ansible-role-postgresql.svg?branch=master)](https://travis-ci.org/tjtoml/ansible-role-postgresql)
 tjtoml.postgresql
 =========
 
