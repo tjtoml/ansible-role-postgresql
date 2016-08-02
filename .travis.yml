@@ -1,41 +1,26 @@
----
 sudo: required
 language: python
-python: "2.7"
-
+python: '2.7'
 env:
-  - SITE=test.yml
-
-# Install ansible
+- SITE=test.yml
 addons:
   apt:
     packages:
     - python-pip
-
 install:
-  # Install ansible
-  - pip install ansible
-
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
-
+- pip install ansible
+- ansible --version
+- printf '[defaults]\nroles_path=../' >ansible.cfg
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-  
-  - ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
+- ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+- ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
+- 'ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo | grep
+  -q ''changed=0.*failed=0'' && (echo ''Idempotence test: pass'' && exit 0) || (echo
+  ''Idempotence test: fail'' && exit 1)
 
-  - >
-    ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-
+'
 notifications:
   email: false
-
-#  webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
+  hipchat:
+    rooms:
+      secure: IWI/TyTOdREeQechoSD4Vu/bVz5BB4cKh0sIlbh0dmlNA4xuqZwCUoFVz/bGzseeUryvBd832YrxoQUESHnAeP2GBuQLEUt/NaT0NgnyCh7TucVsAZoYMlTtp4org6JRJbDdDZpk809hlAeoMbEscv0HpCpFu+EJaxNyRashcnfGvSA1ogGkZ1hG5PUYQ9eNqLD+lfQ8SwYbNa35kzSKLg89wlouzfs10U57Gj33zBk8imHoNJjVDMGLHPAi1goKEfylD5B7mwRteLgQDzwcjPrJTX1eLw9DW7VvSSQyh0BnKs4n6CQcFQtBRaw6m7FAnbb39IiXvQ9KsDdVwWq2n0eWy4d9C6vvjiNH0G1ZqNYd5y90IqVsoG3EJGCc/QfayZ+xudFXOzUa6Uaw6z6QfyE4I1jxJo/SSfz6IDW3UOjjrbRch9AV+ZLTb51OCZ5jCj93Bgl5cIcvNstdX2Qpxfp0xJHmjh70vGORR2s1mFU6uo2BTws6HWwccbpBMxEa+uKfANdQrwRAbkUUJEoowHGdDc02p+T24liLGs3oxJwRmS1Mh1tQUz/70h1Dxnte3b3CoXq+YIX3hp4Blx7nArvIKGRi3ZKHY4Avp8nXcoPdvYE4VyeLThdOh5z/dRvdicWVV3j3A6ZwVb8MIc4B8ZI+kpLx5z8QTMoGutZ/syk=
