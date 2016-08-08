@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tjtoml/ansible-role-postgresql.svg?branch=master)](https://travis-ci.org/tjtoml/ansible-role-postgresql) [![Ansible Role](https://img.shields.io/ansible/role/3078.svg?maxAge=2592000)](https://galaxy.ansible.com/tjtoml/postgresql/)   
+[![Build Status](https://travis-ci.org/tjtoml/ansible-role-postgresql.svg?branch=master)](https://travis-ci.org/tjtoml/ansible-role-postgresql) [![role](https://img.shields.io/badge/Galaxy-tjtoml.postgresql-5bbdbf.svg)](https://galaxy.ansible.com/tjtoml/postgresql/)
 
 tjtoml.postgresql  
 =========
