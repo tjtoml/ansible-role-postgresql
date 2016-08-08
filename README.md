@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/tjtoml/ansible-role-postgresql.svg?branch=master)](https://travis-ci.org/tjtoml/ansible-role-postgresql)
-tjtoml.postgresql
+[![Build Status](https://travis-ci.org/tjtoml/ansible-role-postgresql.svg?branch=master)](https://travis-ci.org/tjtoml/ansible-role-postgresql)  
+
+tjtoml.postgresql  
 =========
 
 This role installs `posgresql` from the repositories provided by [The PostgreSQL Gloabal Develepment Group](https://www.postgresql.org/)
