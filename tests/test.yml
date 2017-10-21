@@ -1,5 +1,13 @@
 ---
 - hosts: localhost
   remote_user: root
+  gather_facts: no
+  pre_tasks:
+    - name: Install python
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: false
+    - name: Gather Facts
+      setup:
   roles:
-    - ansible-role-postgresql
+    - postgresql
+# vim:ft=ansible:
