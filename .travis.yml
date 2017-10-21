@@ -19,7 +19,7 @@ install:
   # Install Ansible.
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "printf '[defaults]\nroles_path = /home/travis/build/tjtoml/' > ansible.cfg"
  
 script:
   # Check the role/playbook's syntax.
