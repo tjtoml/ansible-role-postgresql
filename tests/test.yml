@@ -10,5 +10,5 @@
     - name: Gather Facts
       setup:
   roles:
-    - {role: ../roles/postgresql}
+    - {role: ansible-role-postgresql}
 # vim:ft=ansible:
