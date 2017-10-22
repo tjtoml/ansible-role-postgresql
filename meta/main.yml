@@ -39,6 +39,10 @@ galaxy_info:
     versions:
     - trusty
     - xenial
+  - name: Debian
+    versions:
+    - wheezy
+    - jessie
   galaxy_tags:
     - database
     - postgres
