@@ -1,8 +1,24 @@
 ---
-- name: Add postgres repository key
-  apt_key:
-    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
-    state: present
+- name: Download postgres repository key
+  command: "wget https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+  args:
+    chdir: /tmp/
+    creates: /tmp/ACCC4CF8.asc
+    warn: false
+
+- name: Install postgres repository key
+  command: "apt-key add /tmp/ACCC4CF8.asc"
+  changed_when: false
+
+- name: Update apt cache manually
+  command: "apt-get update"
+  args:
+    warn: false
+  changed_when: false
+
+## The above 3 tasks are crappy work-arounds - ansible has a module for this, but the python 
+## modules they use are *extremely* delicate about SSL certificates and prone to breaking 
+## unexpectedly. 
 
 - name: Add postgres apt repository 
   apt_repository:
