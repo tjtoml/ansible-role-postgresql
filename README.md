@@ -3,7 +3,7 @@
 tjtoml.postgresql  
 =========
 
-This role installs `postgresql` from the repositories provided by [The PostgreSQL Gloabal Develepment Group](https://www.postgresql.org/)
+This role installs `postgresql` from the repositories provided by [The PostgreSQL Global Develepment Group](https://www.postgresql.org/)
 instead of the the official distribution repositories. That is *all* it does - this role is primarily to ensure that
 `postgresql` is installed so that the Ansible `postgres` module can be used.
 
