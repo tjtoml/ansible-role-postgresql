@@ -31,6 +31,7 @@
   command: service postgresql-{{ postgres_version }} initdb
   args:
     creates: /var/lib/pgsql/{{ postgres_version }}/data/postgresql.conf
+    warn: false
   when: ansible_distribution_major_version == "6"
 
 - name: Enable and start postgres service
