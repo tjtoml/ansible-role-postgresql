@@ -14,7 +14,7 @@ None.
 
 Role Variables
 --------------
-`postgres_version: 9.4 #default`
+`postgres_version: 9.4 #default`  
 `postgres_release: 3 #default`
 
 Dependencies
