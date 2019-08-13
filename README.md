@@ -15,6 +15,7 @@ None.
 Role Variables
 --------------
 `postgres_version: 9.4 #default`
+`postgres_release: 3 #default`
 
 Dependencies
 ------------
@@ -28,7 +29,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: database_servers
       roles:
-         - { role: tjtoml.postgresql, postgres_version: 9.4 }
+         - { role: tjtoml.postgresql, postgres_version: 9.4, postgres_release: 3 }
 
 License
 -------
